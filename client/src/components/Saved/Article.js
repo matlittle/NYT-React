@@ -18,7 +18,7 @@ class Article extends React.Component {
   handleNoteSave = e => {
     e.preventDefault();
     API.update(this.props.article._id, {note: this.state.note})
-      .then(() => {alert("Note saved");})
+      .then(() => { this.props.displayModal("Note saved") })
   }
 
   render() {

@@ -31,15 +31,15 @@ class SearchForm extends React.Component {
     const { topic, startDate, endDate } = this.state;
 
     if (topic === "") {
-      alert("Topic is required");
+      this.props.displayModal("Topic is required");
       return false;
     }
     if (startDate === "" || endDate === "") {
-      alert("A start and end date range are required");
+      this.props.displayModal("A Start and End date range are required");
       return false;
     }
     if ( !checkDate(startDate) || !checkDate(endDate) ) {
-      alert("Invalid date format");
+      this.props.displayModal("Invalid date format");
       return false;
     }
 
@@ -47,14 +47,10 @@ class SearchForm extends React.Component {
 
     function checkDate(date) {
       const month = date.substr(4, 2), day = date.substr(6, 2);
-      console.log(month, day);
-      console.log(date, date.length);
 
       if (date.length !== 8 || month < 0 || month > 12 || day < 0 || day > 31) {
         return false;
       }
-      
-      // This function doesn't work if you forget to return true... dumbass...
       return true;
     }
   }
