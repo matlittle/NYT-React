@@ -12,6 +12,9 @@ const PORT = process.env.PORT || 3001;
 app.use( bodyParser.urlencoded({extended: true}) );
 app.use( bodyParser.json() );
 
+// Serve up static assets
+app.use(express.static("client/build"));
+
 // So much time spent wondering why none of the API calls worked,
 // helps when you actually use the damn routes!
 app.use(routes);
