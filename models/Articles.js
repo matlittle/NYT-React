@@ -7,16 +7,13 @@ var ArticleSchema = new Schema({
     type: String,
     required: true
   },
-  summary: {
+  snippet: {
     type: String,
     required: true
   },
-  link: {
+  web_url: {
     type: String,
     required: true
-  },
-  byline: {
-    type: String
   },
   note: {
     type: String
