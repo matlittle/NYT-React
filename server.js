@@ -18,7 +18,10 @@ app.use(routes);
 
 // Set mongoose to use promises and configure connection
 mongoose.Promise = Promise;
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/nytreact");
+mongoose.connect(
+  process.env.MONGODB_URI || "mongodb://localhost/nytreact", 
+  { useMongoClient: true}
+);
 
 app.listen(PORT, () => {
   console.log(`Server listening on port ${PORT}`);
